@@ -75,7 +75,6 @@ class PerfilController extends Controller
      */
     public function update(Request $request, $id)
     {   
-        //dd($request);
         if(Auth::user()->email == $request->email) {
 
             $this->validate($request, [

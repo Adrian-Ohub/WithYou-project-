@@ -50,7 +50,6 @@ class LiveChatController extends Controller
 
         event(new LivechatEvent($mensaje, $user, $canal));
 
-        //return view('ventana', $data);
     }
 
     /**
