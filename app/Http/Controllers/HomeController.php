@@ -32,25 +32,18 @@ class HomeController extends Controller
 
     public function index(User $the_users)
     {
-        //HACER CONSULTA PREVIA A LA TABLA settings PARA GENERAR EL ARRAY DE USUARIOS
-
+        // Hacer consulta previa a "settings" para generar el array usuarios
         $user = Auth::user();
         
-        //Filtro settings (localizacion, rango edad y sexo)
+        // Filtro settings (localizacion, rango edad y sexo)
         $settings_user = $user->setting;
-
-        //return($settings_user);
         
         $the_users = $the_users->newQuery();
         
         $rest_users = $this->GetRestUsers($settings_user, $the_users);
 
-        //dd($rest_users);
-
         if(sizeof($rest_users) > 0) {
             $user_random = ($rest_users->random());
-        
-            //Cada vez que se llame a esta variable pasara un usuario de las preferencias del auth
             
             $photos_user_random = $user_random->photos;
             
@@ -70,10 +63,10 @@ class HomeController extends Controller
         
         $check_like = Like::where([['user_id2', Auth::user()->id],['user_id', $request->user_id2]])->first();
 
-        //Si la otra persona no me ha dado like o no me ha visto aun
+        // Comprobación del check like o visualización por parte del otro usuario
         if(is_null($check_like)){
             
-            //Registro mi like
+            //Registro like
             $like = new Like;
             $like->user_id = Auth::user()->id;
             $like->user_id2 = $request->user_id2;
@@ -84,11 +77,11 @@ class HomeController extends Controller
          */
 
         }else{
-            //Si previamente tenia like y por tanto hago MATCH
+            // Comprobación del check like y generación de Match
             $check_like = Like::where('user_id2', Auth::user()->id)->orwhere('user_id', $request->user_id2);
             $check_like->update(['return_like' => true]);
             
-            //EVENTO PARA RECOGER LA NOTIFICACION DE QUE HAY MATCH
+            // Evento para notificación del Match
             $read_at = Carbon::now()->toDateTimeString(); 
             Auth::user()->notify(new HasMatched(User::find($request->user_id2), $read_at));
             User::find($request->user_id2)->notify(new HasMatched(Auth::user(), $read_at));
@@ -97,7 +90,6 @@ class HomeController extends Controller
 
         $user = Auth::user();
         
-        //Filtro settings (localizacion, rango edad y sexo)
         $settings_user = $user->setting;
         
         $the_users = $the_users->newQuery();
@@ -108,7 +100,7 @@ class HomeController extends Controller
 
             $user_random = ($rest_users->random());
 
-            //Aqui es donde esta la chicha, cada vez que se llame a esta variable pasara un usuario de las preferencias del auth
+            // Generación de ususarios aleatorios de acuerdo a "settings"
             $photos_user_random = $user_random->photos;
 
             $list_matches = $this->GetMatchUsers();
@@ -126,10 +118,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         
-        //Filtro settings (localizacion, rango edad y sexo)
         $settings_user = $user->setting;
-
-        //return($settings_user);
         
         $the_users = $the_users->newQuery();
         
@@ -178,7 +167,7 @@ class HomeController extends Controller
             array_push($array_ids_I_liked_and_matched, $user_liked['user_id']);
         }
         
-       //LISTA DE USUARIOS QUE NO HE DADO LIKE NI MATCHEADO 
+       // LISTA DE USUARIOS QUE NO HE DADO LIKE NI MATCHEADO 
 
         if($array_ids_I_liked_and_matched === []){
             
