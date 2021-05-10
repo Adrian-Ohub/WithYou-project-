@@ -1,28 +1,28 @@
 img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .card {
--webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
--webkit-border-radius: 5px 5px 5px 5px;
-border-radius: 5px 5px 5px 5px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .card-header {
-background-color: #fef1dd;
-font-weight: bold;
+    background-color: #fef1dd;
+    font-weight: bold;
 }
 
 .receptor {
     position: relative;
     height: fit-content;
     background: #fddaa1;
-    border-radius: .0em .4em .4em .4em;
-    padding: .2em;
-    margin-top: .1em;
-    margin-bottom: .1em;
+    border-radius: 0em 0.4em 0.4em 0.4em;
+    padding: 0.2em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
     margin-right: 55%;
     padding-left: 10px;
     padding-right: 10px;
@@ -31,18 +31,18 @@ font-weight: bold;
 .emisor {
     position: relative;
     height: fit-content;
-	background: #95dcf3;
-    border-radius: .4em .0em .4em .4em;
-    padding: .2em;
-    margin-top: .1em;
-    margin-bottom: .1em;
+    background: #95dcf3;
+    border-radius: 0.4em 0em 0.4em 0.4em;
+    padding: 0.2em;
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
     text-align: left;
-    margin-left:55%;
+    margin-left: 55%;
     padding-left: 10px;
     padding-right: 5px;
 }
-.emisor::after{
-    float:left;
+.emisor::after {
+    float: left;
 }
 
 #mensaje-inicio {
@@ -51,7 +51,7 @@ font-weight: bold;
     text-align: center;
 }
 
-button[type=submit] {
+button[type="submit"] {
     background-color: #fba458;
     border: none;
     color: white;
@@ -59,23 +59,23 @@ button[type=submit] {
     display: inline-block;
     text-transform: uppercase;
     font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
-    box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
     -webkit-border-radius: 0px 5px 5px 0px;
     border-radius: 0px 5px 5px 0px;
-    
+
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-  }
-  
-  button[type=submit]:hover {
-    background-color: #fba458;
-  }
+}
 
-  input[type=text] {
+button[type="submit"]:hover {
+    background-color: #fba458;
+}
+
+input[type="text"] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
@@ -94,38 +94,35 @@ button[type=submit] {
     transition: all 0.5s ease-in-out;
     -webkit-border-radius: 5px 0px 0px 5px;
     border-radius: 5px 0px 0px 5px;
-  }
-  
-  input[type=text]:focus {
+}
+
+input[type="text"]:focus {
     background-color: #fff;
     border-bottom: 2px solid #fba458;
-  }
-  
-  input[type=text]:placeholder {
+}
+
+input[type="text"]:placeholder {
     color: #cccccc;
-  }
+}
 
-  .underlineHover {
+.underlineHover {
     color: #636b6f;
-  }
-  
-  .underlineHover:hover {
-    color: #fba458;
-  }
-  
-  .underlineHover:hover:after{
-    width: 100%;
-  }
-  
-  
-  
-  /* OTHERS */
-  
-  *:focus {
-      outline: none;
-  } 
-  
-  #icon {
-    width:60%;
-  }
+}
 
+.underlineHover:hover {
+    color: #fba458;
+}
+
+.underlineHover:hover:after {
+    width: 100%;
+}
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+}
+
+#icon {
+    width: 60%;
+}

@@ -1,4 +1,3 @@
-
 Dropzone.options.dropzoneForm = {
     autoProcessQueue: false,
     uploadMultiple: true,
@@ -11,25 +10,23 @@ Dropzone.options.dropzoneForm = {
         var submitButton = document.querySelector("#submit-all");
         myDropzone = this;
 
-        submitButton.addEventListener('click', function () {
+        submitButton.addEventListener("click", function () {
             myDropzone.processQueue();
-
         });
         this.on("complete", function () {
-            if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0) {
+            if (
+                this.getQueuedFiles().length == 0 &&
+                this.getUploadingFiles().length == 0
+            ) {
                 var _this = this;
                 _this.removeAllFiles();
             }
             load_images();
         });
-    }
+    },
 };
 //Alerts
-$(document).ready(function(){
-
-    $('.alert-success').fadeIn().delay(3000).fadeOut();
-    $('.alert-danger').fadeIn().delay(3000).fadeOut();
-    
-    });
-
-
+$(document).ready(function () {
+    $(".alert-success").fadeIn().delay(3000).fadeOut();
+    $(".alert-danger").fadeIn().delay(3000).fadeOut();
+});

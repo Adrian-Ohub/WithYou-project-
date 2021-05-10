@@ -2,7 +2,7 @@ function initMap() {
     var myLatlng = new google.maps.LatLng($("#lat").val(), $("#lng").val());
     var map = new google.maps.Map(document.getElementById("map"), {
         center: myLatlng,
-        zoom: 13
+        zoom: 13,
     });
 
     var input = document.getElementById("formatted_address");
@@ -17,10 +17,10 @@ function initMap() {
     infowindow.setContent(infowindowContent);
     var marker = new google.maps.Marker({
         map: map,
-        anchorPoint: new google.maps.Point(0, -29)
+        anchorPoint: new google.maps.Point(0, -29),
     });
 
-    autocomplete.addListener("place_changed", function() {
+    autocomplete.addListener("place_changed", function () {
         infowindow.close();
         marker.setVisible(false);
         var place = autocomplete.getPlace();
@@ -29,7 +29,7 @@ function initMap() {
                 title: "No hay detalles de la ubicacion",
                 text: place.name,
                 icon: "error",
-                confirmButtonText: "Ok"
+                confirmButtonText: "Ok",
             });
 
             return;

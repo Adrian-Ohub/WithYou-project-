@@ -1,19 +1,19 @@
-$(document).ready(function() {
-    //scroll top para visualizar ultimo mensaje al cargar pagina
+$(document).ready(function () {
+    // Scroll top para visualizar ultimo mensaje al cargar pagina
     $("#mensajes")
         .stop()
         .animate({
-            scrollTop: $("#mensajes")[0].scrollHeight
+            scrollTop: $("#mensajes")[0].scrollHeight,
         });
 
-    $("#mensaje").on("keydown", function() {
+    $("#mensaje").on("keydown", function () {
         let channel = Echo.private("LiveChat." + $("#canal").val());
 
         setTimeout(() => {
             channel.whisper(
                 "typing",
                 {
-                    typing: true
+                    typing: true,
                     //user: 'user'
                 },
                 0
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     Echo.private("LiveChat." + $("#canal").val())
 
-        .listenForWhisper("typing", e => {
+        .listenForWhisper("typing", (e) => {
             console.log(e);
             clearTimeout(timer);
             e.typing ? $(".typing").show() : $(".typing").hide();
@@ -33,7 +33,7 @@ $(document).ready(function() {
             }, 2000);
         })
 
-        .listen("LivechatEvent", e => {
+        .listen("LivechatEvent", (e) => {
             console.log(e);
 
             var usuariolog = $("#user_id").val();
@@ -59,7 +59,7 @@ $(document).ready(function() {
                 $("#mensajes")
                     .stop()
                     .animate({
-                        scrollTop: $("#mensajes")[0].scrollHeight
+                        scrollTop: $("#mensajes")[0].scrollHeight,
                     });
             } else {
                 var node = document.createElement("div");
@@ -75,14 +75,14 @@ $(document).ready(function() {
                 $("#mensajes")
                     .stop()
                     .animate({
-                        scrollTop: $("#mensajes")[0].scrollHeight
+                        scrollTop: $("#mensajes")[0].scrollHeight,
                     });
             }
         });
 
-    $(document).on("submit", "#mensaje_form", function(event) {
+    $(document).on("submit", "#mensaje_form", function (event) {
         event.preventDefault();
-        //Modificar la direccion en funcion de donde este alojado
+        // Modificar la direccion en funcion de donde este alojado
         $.post(
             "https://dawjavi.insjoaquimmir.cat/ortegaa/Staging---proyecto/public/livechat",
             {
@@ -90,17 +90,16 @@ $(document).ready(function() {
                 user_id: $("#user_id").val(),
                 user_id2: $("#user_id2").val(),
                 canal: $("#canal").val(),
-                mensaje: $("#mensaje").val()
+                mensaje: $("#mensaje").val(),
             }
-        )
-        .done(function(data) {
+        ).done(function (data) {
             //limpia el input de texto
             $("#mensaje").val("");
-            //scroll top para visualizar el ultimo mensaje
+            // Scroll top para visualizar el ultimo mensaje
             $("#mensajes")
                 .stop()
                 .animate({
-                    scrollTop: $("#mensajes")[0].scrollHeight
+                    scrollTop: $("#mensajes")[0].scrollHeight,
                 });
         });
     });
